@@ -5,52 +5,71 @@ import GoogleIcon from './Icons/Google';
 import GDriveIcon from './Icons/GDrive';
 import GMailIcon from './Icons/GMail';
 
+import styles from './RegistrationForm.module.css';
+
 const RegistrationForm = () => {
   return (
-    <div className="registration-form">
-      <h3>Sign Up</h3>
+    <div className={styles['registration-form']}>
+      <div className={styles.logo}>
+        <GMailIcon width="192px" height="146px" />
+      </div>
+      <h1>Sign Up</h1>
       <form>
-        <div className="form-group-horizontal">
-          <div>
-            <FontAwesomeIcon icon={faUser} />
+        <div className={`${styles['form-group']} ${styles.horizontal}`}>
+          <div className={styles.input}>
+            <FontAwesomeIcon icon={faUser} size="lg" />
             <input type="text" placeholder="First Name" />
           </div>
-          <div>
-            <FontAwesomeIcon icon={faUser} />
+          <div className={styles.input}>
+            <FontAwesomeIcon icon={faUser} size="lg" />
             <input type="text" placeholder="Last Name" />
           </div>
         </div>
-        <div className="form-group-vertical">
-          <div>
-            <FontAwesomeIcon icon={faAt} />
-            <input type="email" name="email" id="email" />
+        <div className={`${styles['form-group']} ${styles.vertical}`}>
+          <div className={styles.input}>
+            <FontAwesomeIcon icon={faAt} size="lg" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              id="email"
+            />
           </div>
-          <div>
-            <FontAwesomeIcon icon={faKey} />
-            <input type="password" name="password" id="password" />
+          <div className={styles.input}>
+            <FontAwesomeIcon icon={faKey} size="lg" />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              id="password"
+            />
           </div>
         </div>
-        <div class="form-check">
-          <label class="form-check-label" for="terms-conditions">
-            <input type="checkbox" id="terms-conditions" />I agree with terms
-            and conditions
+        <div className={styles['form-check']}>
+          <input
+            type="checkbox"
+            id="terms-conditions"
+            name="terms-conditions"
+          />
+          <label for="terms-conditions">
+            I agree with terms and conditions
           </label>
         </div>
-        <button>SIgn up</button>
+        <button>Sign up</button>
       </form>
       <p>sponsored by</p>
-      <div>
+      <div class={styles.links}>
         <a href="http://">
-          <GoogleIcon />
+          <GoogleIcon width="24px" height="24px" />
         </a>
         <a href="http://">
-          <GDriveIcon />
+          <GDriveIcon width="29px" height="26px" />
         </a>
         <a href="http://">
-          <GMailIcon />
+          <GMailIcon width="34px" height="25px" />
         </a>
       </div>
-      <p>
+      <p className={styles.signin}>
         Already have an account? <a href="http://">Sign in</a>
       </p>
     </div>
