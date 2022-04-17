@@ -1,0 +1,63 @@
+.checkbox {
+  --checkbox-border-colour: #c9c9c9;
+  margin-bottom: 28px;
+}
+
+.checkbox input {
+  opacity: 0;
+  width: 28px;
+  height: 28px;
+  margin-left: 0;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 19px;
+  padding-left: 10px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+  position: absolute;
+  content: '';
+
+  /*Needed for the line-height to take effect*/
+  display: inline-block;
+}
+
+/*Outer box of the fake checkbox*/
+.checkbox label::before {
+  height: 28px;
+  width: 28px;
+  border: 1px solid var(--checkbox-border-colour);
+  border-radius: 5px;
+  left: -28px;
+  /*(19px line-height - 28px height of fake checkbox) = -9px - 1px (for the border) ÷ 2 = -5px
+   *to vertically center it.
+   */
+  top: -5px;
+}
+
+/*Checkmark of the fake checkbox*/
+.checkbox label::after {
+  height: 8px;
+  width: 20px;
+  border-left: 2px solid #26c022;
+  border-bottom: 2px solid #26c022;
+  transform: rotate(-45deg);
+  left: -24px;
+  top: 3px;
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type='checkbox'] + label::after {
+  content: none;
+}
+
+/*Unhide on the checked state*/
+.checkbox input[type='checkbox']:checked + label::after {
+  content: '';
+}

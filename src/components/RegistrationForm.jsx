@@ -4,17 +4,57 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_EMAIL,
   VALIDATOR_PASSWORD,
+  validate,
 } from '../utils/validators';
 import GoogleIcon from './Icons/Google';
 import GDriveIcon from './Icons/GDrive';
 import GMailIcon from './Icons/GMail';
 import Input from './FormElements/Input';
+import Checkbox from './FormElements/Checkbox';
 
 import styles from './RegistrationForm.module.css';
+
+const validateField = (element, validator = []) => {
+  if (!validate(element.value, validator)) {
+    element.parentElement.classList.add('invalid');
+    return false;
+  }
+  return true;
+};
 
 const RegistrationForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const name = e.target.elements.name;
+    const surname = e.target.elements.surname;
+    const email = e.target.elements.email;
+    const password = e.target.elements.password;
+    const checkbox = e.target.elements['terms-conditions'];
+
+    const validName = validateField(name, [VALIDATOR_REQUIRE()]);
+    const validSurname = validateField(surname, [VALIDATOR_REQUIRE()]);
+    const validEmail = validateField(email, [VALIDATOR_EMAIL()]);
+    const validPassword = validateField(password, [VALIDATOR_PASSWORD()]);
+    const validCheckbox =
+      checkbox.checked ||
+      (checkbox.parentElement.style = '--checkbox-border-colour: #ea4335;');
+
+    if (
+      validName &&
+      validSurname &&
+      validEmail &&
+      validPassword &&
+      validCheckbox
+    ) {
+      console.log({
+        name: name.value,
+        surname: surname.value,
+        email: email.value,
+        password: password.value,
+        checkbox: checkbox.checked,
+      });
+    }
   };
 
   return (
@@ -26,14 +66,15 @@ const RegistrationForm = () => {
       <form onSubmit={submitHandler}>
         <div className={`${styles['form-group']} ${styles.horizontal}`}>
           <Input
+            id="name"
             type="text"
             placeholder="First Name"
             errorMessage="Required field"
             icon={faUser}
             validators={[VALIDATOR_REQUIRE()]}
-            required={true}
           />
           <Input
+            id="surname"
             type="text"
             placeholder="Last Name"
             errorMessage="Required field"
@@ -61,16 +102,7 @@ const RegistrationForm = () => {
             validators={[VALIDATOR_PASSWORD()]}
           />
         </div>
-        <div className={styles.checkbox}>
-          <input
-            type="checkbox"
-            id="terms-conditions"
-            name="terms-conditions"
-          />
-          <label htmlFor="terms-conditions">
-            I agree with terms and conditions
-          </label>
-        </div>
+        <Checkbox label="I agree with terms and conditions" />
         <button type="submit">Sign up</button>
       </form>
       <p>sponsored by</p>
