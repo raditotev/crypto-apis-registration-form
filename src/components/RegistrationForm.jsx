@@ -1,49 +1,65 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faAt, faKey } from '@fortawesome/free-solid-svg-icons';
 
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_EMAIL,
+  VALIDATOR_PASSWORD,
+} from '../utils/validators';
 import GoogleIcon from './Icons/Google';
 import GDriveIcon from './Icons/GDrive';
 import GMailIcon from './Icons/GMail';
+import Input from './FormElements/Input';
 
 import styles from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles['registration-form']}>
       <div className={styles.logo}>
         <GMailIcon width="192px" height="146px" />
       </div>
       <h1>Sign Up</h1>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className={`${styles['form-group']} ${styles.horizontal}`}>
-          <div className={styles.input}>
-            <FontAwesomeIcon icon={faUser} size="lg" />
-            <input type="text" placeholder="First Name" />
-          </div>
-          <div className={styles.input}>
-            <FontAwesomeIcon icon={faUser} size="lg" />
-            <input type="text" placeholder="Last Name" />
-          </div>
+          <Input
+            type="text"
+            placeholder="First Name"
+            errorMessage="Required field"
+            icon={faUser}
+            validators={[VALIDATOR_REQUIRE()]}
+            required={true}
+          />
+          <Input
+            type="text"
+            placeholder="Last Name"
+            errorMessage="Required field"
+            icon={faUser}
+            validators={[VALIDATOR_REQUIRE()]}
+          />
         </div>
         <div className={`${styles['form-group']} ${styles.vertical}`}>
-          <div className={styles.input}>
-            <FontAwesomeIcon icon={faAt} size="lg" />
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              id="email"
-            />
-          </div>
-          <div className={styles.input}>
-            <FontAwesomeIcon icon={faKey} size="lg" />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              id="password"
-            />
-          </div>
+          <Input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            id="email"
+            errorMessage="Please enter valid e-mail"
+            icon={faAt}
+            validators={[VALIDATOR_EMAIL()]}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+            errorMessage="At least 8 characters, one upper case, one lower case letter, one digit and one special symbol"
+            icon={faKey}
+            validators={[VALIDATOR_PASSWORD()]}
+          />
         </div>
         <div className={styles.checkbox}>
           <input
@@ -58,7 +74,7 @@ const RegistrationForm = () => {
         <button type="submit">Sign up</button>
       </form>
       <p>sponsored by</p>
-      <div class={styles.links}>
+      <div className={styles.links}>
         <a href="http://">
           <GoogleIcon width="24px" height="24px" />
         </a>

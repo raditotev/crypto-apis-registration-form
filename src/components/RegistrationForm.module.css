@@ -10,26 +10,6 @@
   padding: 45px 50px;
 }
 
-.registration-form *[data-prefix='fas'] {
-  color: gray;
-  margin: auto 5px;
-}
-
-.registration-form input {
-  height: 70px;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-weight: 100;
-  font-size: 26px;
-  line-height: 30px;
-  margin-left: 10px;
-}
-
-.registration-form input:invalid {
-  border: 1px solid #ea4335;
-}
-
 .registration-form h1 {
   font-weight: 700;
   font-size: 31px;
@@ -64,16 +44,9 @@
 }
 
 .logo {
-  position: fixed;
+  position: absolute;
   top: -73px;
   right: 38px;
-}
-
-.input {
-  display: flex;
-  justify-content: stretch;
-  align-content: center;
-  padding: 5px;
 }
 
 .form-group {

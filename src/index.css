@@ -30,3 +30,12 @@ textarea,
 select {
   font: inherit;
 }
+
+.invalid {
+  border: 1px solid #ea4335 !important;
+}
+
+.invalid *,
+.invalid *::placeholder {
+  color: #ea4335;
+}

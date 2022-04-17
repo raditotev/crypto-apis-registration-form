@@ -1,0 +1,36 @@
+.input {
+  position: relative;
+  display: flex;
+  justify-content: stretch;
+  align-content: center;
+  width: 100%;
+  border: 1px solid #e9e9e9;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.input *[data-prefix='fas'] {
+  background: rgba(0, 0, 0, 0.0001);
+  mix-blend-mode: normal;
+  opacity: 0.2;
+  margin: auto 5px;
+}
+
+.input input {
+  height: 70px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-weight: 100;
+  font-size: 26px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.error-message {
+  position: absolute;
+  left: 1px0;
+  bottom: 0;
+  color: #ea4335;
+  font-size: 0.7rem;
+}
