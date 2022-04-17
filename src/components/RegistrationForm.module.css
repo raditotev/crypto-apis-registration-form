@@ -49,35 +49,6 @@
   right: 38px;
 }
 
-.form-group {
-  margin-bottom: 5px;
-}
-
-.form-group div {
-  border: 1px solid gray;
-  border-radius: 2px;
-  width: 100%;
-}
-
-.horizontal {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 13px;
-  margin-bottom: 24px;
-}
-
-.horizontal div {
-  display: flex;
-}
-
-.vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-bottom: 36px;
-}
-
 .links {
   display: flex;
   justify-content: space-between;

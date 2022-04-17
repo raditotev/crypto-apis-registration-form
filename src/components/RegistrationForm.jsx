@@ -11,6 +11,7 @@ import GDriveIcon from './Icons/GDrive';
 import GMailIcon from './Icons/GMail';
 import Input from './FormElements/Input';
 import Checkbox from './FormElements/Checkbox';
+import FormGroup from './FormElements/FormGroup';
 
 import styles from './RegistrationForm.module.css';
 
@@ -64,7 +65,7 @@ const RegistrationForm = () => {
       </div>
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler}>
-        <div className={`${styles['form-group']} ${styles.horizontal}`}>
+        <FormGroup horizontal>
           <Input
             id="name"
             type="text"
@@ -81,8 +82,8 @@ const RegistrationForm = () => {
             icon={faUser}
             validators={[VALIDATOR_REQUIRE()]}
           />
-        </div>
-        <div className={`${styles['form-group']} ${styles.vertical}`}>
+        </FormGroup>
+        <FormGroup vertical>
           <Input
             type="email"
             placeholder="Email Address"
@@ -101,7 +102,7 @@ const RegistrationForm = () => {
             icon={faKey}
             validators={[VALIDATOR_PASSWORD()]}
           />
-        </div>
+        </FormGroup>
         <Checkbox label="I agree with terms and conditions" />
         <button type="submit">Sign up</button>
       </form>
