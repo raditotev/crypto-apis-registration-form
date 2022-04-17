@@ -16,7 +16,7 @@ import Button from './FormElements/Button';
 
 import styles from './RegistrationForm.module.css';
 
-const validateField = (element, validator = []) => {
+const validateField = (element, validator) => {
   if (!validate(element.value, validator)) {
     element.parentElement.classList.add('invalid');
     return false;
@@ -34,10 +34,10 @@ const RegistrationForm = () => {
     const password = e.target.elements.password;
     const checkbox = e.target.elements['terms-conditions'];
 
-    const validName = validateField(name, [VALIDATOR_REQUIRE()]);
-    const validSurname = validateField(surname, [VALIDATOR_REQUIRE()]);
-    const validEmail = validateField(email, [VALIDATOR_EMAIL()]);
-    const validPassword = validateField(password, [VALIDATOR_PASSWORD()]);
+    const validName = validateField(name, VALIDATOR_REQUIRE());
+    const validSurname = validateField(surname, VALIDATOR_REQUIRE());
+    const validEmail = validateField(email, VALIDATOR_EMAIL());
+    const validPassword = validateField(password, VALIDATOR_PASSWORD());
     const validCheckbox =
       checkbox.checked ||
       (checkbox.parentElement.style = '--checkbox-border-colour: #ea4335;');
@@ -73,7 +73,7 @@ const RegistrationForm = () => {
             placeholder="First Name"
             errorMessage="Required field"
             icon={faUser}
-            validators={[VALIDATOR_REQUIRE()]}
+            validator={VALIDATOR_REQUIRE()}
           />
           <Input
             id="surname"
@@ -81,7 +81,7 @@ const RegistrationForm = () => {
             placeholder="Last Name"
             errorMessage="Required field"
             icon={faUser}
-            validators={[VALIDATOR_REQUIRE()]}
+            validator={VALIDATOR_REQUIRE()}
           />
         </FormGroup>
         <FormGroup vertical>
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
             id="email"
             errorMessage="Please enter valid e-mail"
             icon={faAt}
-            validators={[VALIDATOR_EMAIL()]}
+            validator={VALIDATOR_EMAIL()}
           />
           <Input
             type="password"
@@ -101,7 +101,7 @@ const RegistrationForm = () => {
             id="password"
             errorMessage="At least 8 characters, one upper case, one lower case letter, one digit and one special symbol"
             icon={faKey}
-            validators={[VALIDATOR_PASSWORD()]}
+            validator={VALIDATOR_PASSWORD()}
           />
         </FormGroup>
         <Checkbox label="I agree with terms and conditions" />

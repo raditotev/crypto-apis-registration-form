@@ -22,7 +22,7 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         value: action.value,
-        isValid: validate(action.value, action.validators),
+        isValid: validate(action.value, action.validator),
       };
     case actionTypes.TOUCH:
       return { ...state, isTouched: true };
@@ -35,7 +35,7 @@ const Input = ({
   icon,
   iconSize = 'lg',
   errorMessage,
-  validators,
+  validator,
   className,
   ...props
 }) => {
@@ -46,7 +46,7 @@ const Input = ({
     dispatch({
       type: actionTypes.CHANGE,
       value,
-      validators,
+      validator,
     });
   };
 
