@@ -39,3 +39,9 @@ select {
 .invalid *::placeholder {
   color: #ea4335;
 }
+
+@media (max-width: 800px) {
+  .registration-form {
+    width: 100vw;
+  }
+}

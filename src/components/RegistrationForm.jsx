@@ -12,6 +12,7 @@ import GMailIcon from './Icons/GMail';
 import Input from './FormElements/Input';
 import Checkbox from './FormElements/Checkbox';
 import FormGroup from './FormElements/FormGroup';
+import Button from './FormElements/Button';
 
 import styles from './RegistrationForm.module.css';
 
@@ -104,19 +105,19 @@ const RegistrationForm = () => {
           />
         </FormGroup>
         <Checkbox label="I agree with terms and conditions" />
-        <button type="submit">Sign up</button>
+        <Button type="submit">Sign up</Button>
       </form>
       <p>sponsored by</p>
       <div className={styles.links}>
-        <a href="http://">
+        <Button href="http://">
           <GoogleIcon width="24px" height="24px" />
-        </a>
-        <a href="http://">
+        </Button>
+        <Button href="http://">
           <GDriveIcon width="29px" height="26px" />
-        </a>
-        <a href="http://">
+        </Button>
+        <Button href="http://">
           <GMailIcon width="34px" height="25px" />
-        </a>
+        </Button>
       </div>
       <p className={styles.signin}>
         Already have an account? <a href="http://">Sign in</a>
