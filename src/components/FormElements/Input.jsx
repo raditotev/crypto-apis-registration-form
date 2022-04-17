@@ -61,7 +61,7 @@ const Input = ({
     <div
       className={`
       ${styles.input}
-      ${!input.isValid && input.isTouched && 'invalid'}
+      ${!input.isValid && input.isTouched ? 'invalid' : null}
       ${className}`}
     >
       <FontAwesomeIcon icon={icon} size={iconSize} />

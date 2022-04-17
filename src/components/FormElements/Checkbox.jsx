@@ -2,6 +2,7 @@ import styles from './Checkbox.module.css';
 
 const Checkbox = ({ label }) => {
   const clickHandler = (e) => {
+    // Clear validation error from form submission
     e.target.parentElement.style = '--checkbox-border-colour: #c9c9c9;';
   };
 

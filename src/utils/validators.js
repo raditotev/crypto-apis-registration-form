@@ -13,7 +13,9 @@ export const validate = (value, validator) => {
     case VALIDATOR_TYPE_EMAIL:
       return /^\S+@\S+\.\S+$/.test(value);
     case VALIDATOR_TYPE_PASSWORD:
-      return value.trim().length > 0;
+      return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        value
+      );
     default:
       throw new Error(`Invalid validator type ${validator.type}`);
   }

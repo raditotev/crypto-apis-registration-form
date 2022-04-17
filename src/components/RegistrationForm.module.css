@@ -45,3 +45,9 @@
 .signin a {
   color: #30d12c;
 }
+
+@media (max-width: 800px) {
+  .registration-form {
+    width: 100vw;
+  }
+}

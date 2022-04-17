@@ -71,7 +71,7 @@ const RegistrationForm = () => {
             id="name"
             type="text"
             placeholder="First Name"
-            errorMessage="Required field"
+            errorMessage="Required"
             icon={faUser}
             validator={VALIDATOR_REQUIRE()}
           />
@@ -79,7 +79,7 @@ const RegistrationForm = () => {
             id="surname"
             type="text"
             placeholder="Last Name"
-            errorMessage="Required field"
+            errorMessage="Required"
             icon={faUser}
             validator={VALIDATOR_REQUIRE()}
           />
