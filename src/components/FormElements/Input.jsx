@@ -1,35 +1,10 @@
-import { useReducer, useRef } from 'react';
+import { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { validate } from '../../utils/validators';
+import { useInput } from '../../hooks/use-input';
+import { actionTypes } from '../../store/input-reducer';
 
 import styles from './Input.module.css';
-
-const initialReducer = {
-  value: '',
-  isValid: false,
-  isTouched: false,
-};
-
-const actionTypes = {
-  CHANGE: 'CHANGE',
-  TOUCH: 'TOUCH',
-};
-
-const inputReducer = (state, action) => {
-  switch (action.type) {
-    case actionTypes.CHANGE:
-      return {
-        ...state,
-        value: action.value,
-        isValid: validate(action.value, action.validator),
-      };
-    case actionTypes.TOUCH:
-      return { ...state, isTouched: true };
-    default:
-      throw new Error(`Unknown action type ${action.type}`);
-  }
-};
 
 const Input = ({
   icon,
@@ -39,7 +14,7 @@ const Input = ({
   className,
   ...props
 }) => {
-  const [input, dispatch] = useReducer(inputReducer, initialReducer);
+  const [input, dispatch] = useInput();
   const inputRef = useRef();
 
   if (input.isValid) {
