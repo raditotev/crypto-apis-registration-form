@@ -45,17 +45,17 @@ const RegistrationForm = () => {
             />
           </div>
         </div>
-        <div className={styles['form-check']}>
+        <div className={styles.checkbox}>
           <input
             type="checkbox"
             id="terms-conditions"
             name="terms-conditions"
           />
-          <label for="terms-conditions">
+          <label htmlFor="terms-conditions">
             I agree with terms and conditions
           </label>
         </div>
-        <button>Sign up</button>
+        <button type="submit">Sign up</button>
       </form>
       <p>sponsored by</p>
       <div class={styles.links}>
