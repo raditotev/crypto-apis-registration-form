@@ -25,6 +25,7 @@ const validateField = (element, validator) => {
   return true;
 };
 
+const RegistrationForm = ({ onRegister }) => {
   const [reset, setReset] = useState();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -50,10 +51,15 @@ const validateField = (element, validator) => {
       validPassword &&
       validCheckbox
     ) {
-      console.log({
-        name: name.value,
-        surname: surname.value,
-        email: email.value,
+      onRegister((state) => [
+        {
+          id: Math.random(),
+          name: name.value,
+          email: email.value,
+          timestamp: new Date(),
+        },
+        ...state,
+      ]);
       setReset(Date.now());
     }
   };

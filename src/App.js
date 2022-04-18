@@ -1,10 +1,15 @@
+import { useState } from 'react';
+import ListUsers from './components/ListUsers';
+
 import RegistrationForm from './components/RegistrationForm';
 
 function App() {
+  const [users, setUsers] = useState([]);
   return (
-    <div className="App">
-      <RegistrationForm />
-    </div>
+    <>
+      <RegistrationForm onRegister={setUsers} />
+      <ListUsers users={users} />
+    </>
   );
 }
 
