@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useInput } from '../../hooks/use-input';
-import { actionTypes } from '../../store/input-reducer';
+import { actionTypes } from '../../reducers/input-reducer';
 
 import styles from './Input.module.css';
 import { useEffect } from 'react';

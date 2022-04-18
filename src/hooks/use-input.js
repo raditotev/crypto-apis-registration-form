@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-import { initialInputReducer, inputReducer } from '../store/input-reducer';
+import { initialInputReducer, inputReducer } from '../reducers/input-reducer';
 
 const useInput = (customInitialReducer) => {
   const [input, dispatch] = useReducer(inputReducer, {
