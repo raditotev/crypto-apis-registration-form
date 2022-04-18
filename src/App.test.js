@@ -137,7 +137,7 @@ test('invalid password', () => {
   expect(screen.queryByText(errorMessage)).not.toBeInTheDocument();
 });
 
-test.only('logs registered users in descending order', () => {
+test('logs registered users in descending order', () => {
   render(<App />);
 
   const name = screen.getByPlaceholderText('First Name');
