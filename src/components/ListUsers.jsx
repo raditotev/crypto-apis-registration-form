@@ -2,7 +2,7 @@ import styles from './ListUsers.module.css';
 
 const ListUsers = ({ users }) => {
   return (
-    <table className={styles.table}>
+    <table aria-label="registered-users" className={styles.table}>
       <thead>
         <tr>
           <th>Name</th>
@@ -13,7 +13,7 @@ const ListUsers = ({ users }) => {
       </thead>
       <tbody>
         {users.map((user) => (
-          <tr key={user.id}>
+          <tr key={user.id} data-testid="registered-user-entry">
             <td>{user.name}</td>
             <td>{user.surname}</td>
             <td>{user.email}</td>

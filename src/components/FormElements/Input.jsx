@@ -52,6 +52,7 @@ const Input = ({
       ${className}
       ${!input.isValid && input.isTouched ? 'invalid' : null}
       `}
+      data-testid="form-input"
     >
       <FontAwesomeIcon icon={icon} size={iconSize} />
       <input
