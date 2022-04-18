@@ -5,6 +5,7 @@ import { useInput } from '../../hooks/use-input';
 import { actionTypes } from '../../store/input-reducer';
 
 import styles from './Input.module.css';
+import { useEffect } from 'react';
 
 const Input = ({
   icon,
@@ -12,14 +13,19 @@ const Input = ({
   errorMessage,
   validator,
   className,
+  reset,
   ...props
 }) => {
   const [input, dispatch] = useInput();
-  const inputRef = useRef();
+  const divRef = useRef();
+
+  useEffect(() => {
+    dispatch({ type: actionTypes.RESET });
+  }, [dispatch, reset]);
 
   if (input.isValid) {
     // Remove 'invalid' class if it was applied because of empty form submission
-    inputRef.current.classList.remove('invalid');
+    divRef.current.classList.remove('invalid');
   }
 
   const changeHandler = (e) => {
@@ -40,7 +46,7 @@ const Input = ({
 
   return (
     <div
-      ref={inputRef}
+      ref={divRef}
       className={`
       ${styles.input}
       ${className}

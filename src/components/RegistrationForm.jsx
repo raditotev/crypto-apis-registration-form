@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { faUser, faAt, faKey } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -24,7 +25,7 @@ const validateField = (element, validator) => {
   return true;
 };
 
-const RegistrationForm = () => {
+  const [reset, setReset] = useState();
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -53,9 +54,7 @@ const RegistrationForm = () => {
         name: name.value,
         surname: surname.value,
         email: email.value,
-        password: password.value,
-        checkbox: checkbox.checked,
-      });
+      setReset(Date.now());
     }
   };
 
@@ -74,6 +73,7 @@ const RegistrationForm = () => {
             errorMessage="Required"
             icon={faUser}
             validator={VALIDATOR_REQUIRE()}
+            reset={reset}
           />
           <Input
             id="surname"
@@ -82,6 +82,7 @@ const RegistrationForm = () => {
             errorMessage="Required"
             icon={faUser}
             validator={VALIDATOR_REQUIRE()}
+            reset={reset}
           />
         </FormGroup>
         <FormGroup vertical>
@@ -93,6 +94,7 @@ const RegistrationForm = () => {
             errorMessage="Please enter valid e-mail"
             icon={faAt}
             validator={VALIDATOR_EMAIL()}
+            reset={reset}
           />
           <Input
             type="password"
@@ -102,9 +104,10 @@ const RegistrationForm = () => {
             errorMessage="At least 8 characters, one upper case, one lower case letter, one digit and one special symbol"
             icon={faKey}
             validator={VALIDATOR_PASSWORD()}
+            reset={reset}
           />
         </FormGroup>
-        <Checkbox label="I agree with terms and conditions" />
+        <Checkbox label="I agree with terms and conditions" reset={reset} />
         <Button type="submit">Sign up</Button>
       </form>
       <p>sponsored by</p>

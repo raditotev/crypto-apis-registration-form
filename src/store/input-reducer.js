@@ -9,6 +9,7 @@ const initialInputReducer = {
 const actionTypes = {
   CHANGE: 'CHANGE',
   TOUCH: 'TOUCH',
+  RESET: 'RESET',
 };
 
 const inputReducer = (state, action) => {
@@ -21,6 +22,8 @@ const inputReducer = (state, action) => {
       };
     case actionTypes.TOUCH:
       return { ...state, isTouched: true };
+    case actionTypes.RESET:
+      return initialInputReducer;
     default:
       throw new Error(`Unknown action type ${action.type}`);
   }
