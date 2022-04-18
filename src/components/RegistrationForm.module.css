@@ -1,9 +1,7 @@
 .registration-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 632px;
-  transform: translate(-50%, -50%);
+  position: relative;
+  max-width: 632px;
+  width: 60vw;
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 5px;
   box-shadow: -2.9px -0.9px 28.6px rgba(0, 0, 0, 0.05);
