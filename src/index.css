@@ -42,3 +42,10 @@ select {
 .invalid *::placeholder {
   color: #ea4335;
 }
+
+@media (max-width: 800px) {
+  body {
+    justify-content: stretch;
+    padding: 5px;
+  }
+}

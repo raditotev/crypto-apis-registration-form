@@ -1,7 +1,3 @@
-.form-group {
-  margin-bottom: 5px;
-}
-
 .form-group div {
   border: 1px solid gray;
   border-radius: 2px;
@@ -21,4 +17,15 @@
   flex-direction: column;
   gap: 25px;
   margin-bottom: 36px;
+}
+
+@media (max-width: 800px) {
+  .vertical {
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .horizontal {
+    margin-bottom: 1rem;
+  }
 }

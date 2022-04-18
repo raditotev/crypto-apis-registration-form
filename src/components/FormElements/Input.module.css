@@ -35,3 +35,9 @@
   color: #ea4335;
   font-size: 0.7rem;
 }
+
+@media (max-width: 800px) {
+  .input input {
+    height: 40px;
+  }
+}

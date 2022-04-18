@@ -68,7 +68,7 @@ const RegistrationForm = ({ onRegister }) => {
   return (
     <div className={styles['registration-form']}>
       <div className={styles.logo}>
-        <GMailIcon width="192px" height="146px" />
+        <GMailIcon width="150px" height="150px" />
       </div>
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler}>
@@ -123,10 +123,10 @@ const RegistrationForm = ({ onRegister }) => {
           <GoogleIcon width="24px" height="24px" />
         </Button>
         <Button href="http://">
-          <GDriveIcon width="29px" height="26px" />
+          <GDriveIcon width="24px" height="24px" />
         </Button>
         <Button href="http://">
-          <GMailIcon width="34px" height="25px" />
+          <GMailIcon width="24px" height="24px" />
         </Button>
       </div>
       <p className={styles.signin}>

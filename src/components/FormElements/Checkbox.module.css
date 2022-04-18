@@ -54,3 +54,15 @@
   font-size: 25px;
   padding-top: 3px;
 }
+
+@media (max-width: 800px) {
+  .checkbox {
+    margin-bottom: 1rem;
+  }
+
+  .checkbox input {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+}
