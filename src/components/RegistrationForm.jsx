@@ -55,6 +55,7 @@ const RegistrationForm = ({ onRegister }) => {
         {
           id: Math.random(),
           name: name.value,
+          surname: surname.value,
           email: email.value,
           timestamp: new Date(),
         },

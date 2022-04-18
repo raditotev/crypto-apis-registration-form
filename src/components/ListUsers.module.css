@@ -1,0 +1,9 @@
+.table {
+  margin-top: 20px;
+  width: 632px;
+}
+.table th,
+.table td {
+  text-align: start;
+  min-width: 100px;
+}
