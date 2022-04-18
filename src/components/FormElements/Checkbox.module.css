@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 .checkbox {
   --checkbox-border-colour: #c9c9c9;
   margin-bottom: 28px;
@@ -23,8 +25,6 @@
 .checkbox label::after {
   position: absolute;
   content: '';
-
-  /*Needed for the line-height to take effect*/
   display: inline-block;
 }
 
@@ -41,23 +41,16 @@
   top: -5px;
 }
 
-/*Checkmark of the fake checkbox*/
-.checkbox label::after {
-  height: 8px;
-  width: 20px;
-  border-left: 2px solid #26c022;
-  border-bottom: 2px solid #26c022;
-  transform: rotate(-45deg);
-  left: -24px;
-  top: 3px;
-}
-
 /*Hide the checkmark by default*/
 .checkbox input[type='checkbox'] + label::after {
   content: none;
 }
 
-/*Unhide on the checked state*/
-.checkbox input[type='checkbox']:checked + label::after {
-  content: '';
+.checkbox input[type='checkbox']:checked + label::before {
+  font-family: FontAwesome;
+  display: inline-block;
+  content: '\f00c';
+  color: #26c022;
+  font-size: 25px;
+  padding-top: 3px;
 }
