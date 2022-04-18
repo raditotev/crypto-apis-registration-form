@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const Input = ({
   icon,
-  iconSize = 'lg',
+  iconSize = 'xl',
   errorMessage,
   validator,
   className,

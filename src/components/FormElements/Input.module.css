@@ -10,9 +10,8 @@
 }
 
 .input *[data-prefix='fas'] {
-  background: rgba(0, 0, 0, 0.0001);
+  color: #cdcdcd;
   mix-blend-mode: normal;
-  opacity: 0.2;
   margin: auto 5px;
 }
 
