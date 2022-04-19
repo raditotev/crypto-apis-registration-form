@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useInput } from '../../hooks/use-input';
@@ -17,6 +17,7 @@ const Input = ({
   ...props
 }) => {
   const [input, dispatch] = useInput();
+  const [isFocused, setIsFocused] = useState(false);
   const divRef = useRef();
 
   useEffect(() => {
@@ -42,6 +43,11 @@ const Input = ({
       type: actionTypes.TOUCH,
       isTouched: true,
     });
+    setIsFocused(false);
+  };
+
+  const focusHandler = () => {
+    setIsFocused(true);
   };
 
   return (
@@ -49,15 +55,22 @@ const Input = ({
       ref={divRef}
       className={`
       ${styles.input}
+      ${!input.isValid && input.isTouched ? 'invalid' : ''}
       ${className}
-      ${!input.isValid && input.isTouched ? 'invalid' : null}
       `}
       data-testid="form-input"
     >
-      <FontAwesomeIcon icon={icon} size={iconSize} />
+      <span
+        className={`${styles.icon} ${isFocused ? styles.focused : ''} ${
+          input.isValid ? 'valid' : ''
+        }`}
+      >
+        <FontAwesomeIcon icon={icon} size={iconSize} />
+      </span>
       <input
         onChange={changeHandler}
         onBlur={blurHandler}
+        onFocus={focusHandler}
         value={input.value}
         {...props}
       />

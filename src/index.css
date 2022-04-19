@@ -43,6 +43,10 @@ select {
   color: #ea4335;
 }
 
+.valid svg {
+  color: #57dc8d !important;
+}
+
 @media (max-width: 800px) {
   body {
     justify-content: stretch;

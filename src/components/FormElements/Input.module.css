@@ -9,6 +9,19 @@
   padding: 5px;
 }
 
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px !important;
+  margin: -6px;
+  z-index: -1;
+}
+
+.icon.focused {
+  background-color: #f7f7f7;
+}
+
 .input *[data-prefix='fas'] {
   color: #cdcdcd;
   mix-blend-mode: normal;
@@ -29,7 +42,7 @@
 .error-message {
   position: absolute;
   left: 1px0;
-  bottom: 0;
+  bottom: -15px;
   color: #ea4335;
   font-size: 0.7rem;
 }
